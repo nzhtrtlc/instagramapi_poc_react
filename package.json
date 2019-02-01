@@ -2,7 +2,6 @@
   "name": "instagramapi_poc_react",
   "version": "1.0.0",
   "description": "A React application that fetch user's images from API",
-  "homepage": "https://nzhtrtlc.github.io/instagramapi_poc_react/",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.dev.js --progress --colors --port 3000 --open",
@@ -23,6 +22,7 @@
   "bugs": {
     "url": "https://github.com/nzhtrtlc/instagramapi_poc_react/issues"
   },
+  "homepage": "https://github.com/nzhtrtlc/instagramapi_poc_react",
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
