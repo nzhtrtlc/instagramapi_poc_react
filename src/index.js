@@ -7,3 +7,5 @@ ReactDOM.render(
 <div>{title}</div>,
 document.getElementById('root')
 );
+
+module.hot.accept();
