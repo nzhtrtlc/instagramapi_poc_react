@@ -1,16 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class Home extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
+    static propTypes = {
+        dispatch: PropTypes.func
+    };
+
+    testDispatch = () => {
+        this.props.dispatch({ type: 'TEST' });
+    };
 
     render() {
         return (
             <div>
-                <button onClick={() => this.props.dispatch({type: 'TEST'})}>Dispatch</button>
+                <button onClick={this.testDispatch}>Dispatch</button>
             </div>
         );
     }
