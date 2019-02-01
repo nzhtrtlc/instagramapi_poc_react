@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from 'redux/configureStore';
+import Home from 'layout/screens/Home';
 
-const title = 'My Minimal React Webpack Babel Setup 11';
+const store = configureStore();
+ReactDOM.render(
+    <Provider store={store}>
+        <Home/>
+    </Provider>, document.getElementById('root'));
 
-function App() {
-    return (
-        <div>{title}</div>
-    )
-}
-
-ReactDOM.render(<App/>, document.getElementById('root'));
-
-if(module.hot){
+if (module.hot) {
     module.hot.accept();
 }
