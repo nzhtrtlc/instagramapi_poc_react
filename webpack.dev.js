@@ -33,7 +33,7 @@ module.exports = merge(common, {
                     'style-loader',
                     'css-loader',
                     //'postcss-loader',
-                    'sass-loader'
+                    //'sass-loader'
                 ]
             },
             { test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]' },
