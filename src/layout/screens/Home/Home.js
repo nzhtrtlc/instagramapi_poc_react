@@ -32,7 +32,7 @@ class Home extends React.Component {
 
     login = () => {
         const clientId = '5275b13c961144bfaad9569fb880c252';
-        const redirectUri = window.location.host + '/callback/instagram';
+        const redirectUri = window.location.href + 'callback/instagram';
         window.location.href = `https://api.instagram.com/oauth/authorize/?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token`;
     };
 
