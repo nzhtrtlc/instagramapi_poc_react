@@ -63,15 +63,15 @@ class MediaGrid extends React.Component {
                         return (
                             <Grow
                                 key={item.id}
-                                in
+                                in={true}
                                 style={{ transformOrigin: '0 0 0' }}
                                 {...({ timeout: index * 500 })}
                             >
                                 <GridListTile cols={1}>
                                     {item.type === 'video' ? (
                                         <video style={{ width: '100%', height: '100%' }}
-                                               src={item.videos.standard_resolution.url}
                                                controls>
+                                            <source src={item.videos.standard_resolution.url} type="video/mp4"/>
                                             HTML5 Video is not supported.
                                         </video>
                                     ) : <img src={item.images.standard_resolution.url} alt={item.tags.join(',')}/>}
