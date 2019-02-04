@@ -32,20 +32,20 @@ class Home extends React.Component {
 
     login = () => {
         const clientId = '5275b13c961144bfaad9569fb880c252';
-        const redirectUri = 'http://localhost:3000/callback/instagram';
+        const redirectUri = window.location.host + '/callback/instagram';
         window.location.href = `https://api.instagram.com/oauth/authorize/?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token`;
     };
 
     render() {
         const { userLogged } = this.props;
         return (
-            <Grid container spacing={0}
+            <Grid container spacing={16}
                   direction="column"
                   alignItems="center"
-                  justify="center"
-                  style={{ minHeight: '100vh' }}>
+                  justify="center">
                 {!userLogged &&
-                <Button onClick={this.login} color="default" variant="contained" size="small">Log in via
+                <Button style={{ margin: '15% auto' }} onClick={this.login} color="default" variant="contained"
+                        size="small">Log in via
                     instagram</Button>}
                 {userLogged && <UserMedia/>}
             </Grid>

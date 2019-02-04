@@ -34,7 +34,7 @@ body {
     animation: heart-burst .8s steps(28) 1;
 }
 
-.is_heart_animated{
+.is_heart_animated {
     background-position: right;
 }
 
@@ -45,4 +45,9 @@ body {
     to {
         background-position: right;
     }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
 }

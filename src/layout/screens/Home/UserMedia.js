@@ -1,12 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
-import Grow from '@material-ui/core/Grow';
 import Typography from '@material-ui/core/Typography';
 import MediaGrid from './MediaGrid';
 import { getUserInfo, getUserMedia } from 'redux/actions/userActions';
 import { connect } from 'react-redux';
 import Filter from './Filter';
+import Grid from '@material-ui/core/Grid/Grid';
+import Paper from '@material-ui/core/Paper/Paper';
+import withStyles from '@material-ui/core/es/styles/withStyles';
+
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing.unit,
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+});
 
 class UserMedia extends React.Component {
 
@@ -16,7 +29,8 @@ class UserMedia extends React.Component {
         userMedia: PropTypes.array,
         filteredUserMedia: PropTypes.array,
         userMediaLoading: PropTypes.bool,
-        userMediaLoaded: PropTypes.bool
+        userMediaLoaded: PropTypes.bool,
+        classes: PropTypes.object
     };
 
     componentDidMount() {
@@ -25,12 +39,17 @@ class UserMedia extends React.Component {
     }
 
     render() {
-        const { userInfo, userMedia, userMediaLoaded, filteredUserMedia } = this.props;
+        const { userInfo, userMedia, filteredUserMedia, classes } = this.props;
         return (
             <React.Fragment>
-                <Avatar style={{ width: 120, height: 120 }} alt=""
-                        src={userInfo.profile_picture}/>
-                <Grow in>
+                <Grid item xs={4}>
+                    <Paper className={classes.paper}>
+                        <Avatar style={{ width: 120, height: 120 }} alt=""
+                                src={userInfo.profile_picture}/>
+                    </Paper>
+                </Grid>
+                <Grid item xs={4}/>
+                <Grid item xs={4}>
                     <Typography style={{ color: '#fff', marginTop: 10 }} variant="h4" gutterBottom>
                         <div style={{
                             display: 'flex',
@@ -48,11 +67,13 @@ class UserMedia extends React.Component {
                             }}>{userInfo.full_name}</span>
                         </div>
                     </Typography>
-                </Grow>
-                {userMediaLoaded && <React.Fragment>
+                </Grid>
+                <Grid item xs={4}>
                     <Filter/>
+                </Grid>
+                <Grid item lg='auto'>
                     <MediaGrid media={filteredUserMedia.length > 0 ? filteredUserMedia : userMedia}/>
-                </React.Fragment>}
+                </Grid>
             </React.Fragment>
         );
     }
@@ -66,4 +87,4 @@ const mapStateToProps = state => ({
     userMediaLoaded: state.user.userMedia.loaded,
 });
 
-export default connect(mapStateToProps)(UserMedia);
+export default connect(mapStateToProps)(withStyles(styles)(UserMedia));
