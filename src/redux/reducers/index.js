@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import instagramAPI from './instagramAPIReducer';
+import user from './userReducer';
 
 export default combineReducers({
-    instagramAPI
+    user
 });

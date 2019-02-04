@@ -1,10 +1,14 @@
 {
+  "homepage": "https://github.com/nzhtrtlc/instagramapi_poc_react",
   "name": "instagramapi_poc_react",
   "version": "1.0.0",
   "description": "A React application that fetch user's images from API",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.dev.js --progress --colors --port 3000 --open",
+    "dist": "webpack --config ./webpack.prod.js --progress --colors",
+    "predeploy": "npm run dist",
+    "deploy": "gh-pages -d dist",
     "lint": "esw src --color",
     "lint:watch": "npm run lint -- --watch"
   },
@@ -22,11 +26,13 @@
   "bugs": {
     "url": "https://github.com/nzhtrtlc/instagramapi_poc_react/issues"
   },
-  "homepage": "https://github.com/nzhtrtlc/instagramapi_poc_react",
   "dependencies": {
     "@material-ui/core": "^3.9.1",
     "@material-ui/icons": "^3.0.2",
     "axios": "^0.18.0",
+    "immutability-helper": "^3.0.0",
+    "lodash.get": "^4.4.2",
+    "lodash.has": "^4.5.2",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -45,13 +51,18 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^2.1.0",
     "eslint": "^5.13.0",
     "eslint-plugin-react": "^7.12.4",
     "eslint-watch": "^4.0.2",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "react-hot-loader": "^4.6.5",
     "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack-merge": "^4.2.1"
   }
 }
